@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Browser</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Recipestyles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Recipe Browser</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="recipe-table-container">
+            <table class="recipe-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Cuisine</th>
+                        <th>Rating</th>
+                        <th>Total Time</th>
+                        <th>Serves</th>
+                    </tr>
+                    <tr class="filter-row">
+                        <th><input type="text" id="filter-title" placeholder="Filter by title"></th>
+                        <th><input type="text" id="filter-cuisine" placeholder="Filter by cuisine"></th>
+                        <th><input type="text" id="filter-rating" placeholder="e.g. >=4.5"></th>
+                        <th><input type="text" id="filter-time" placeholder="e.g. <=60"></th>
+                        <th><input type="text" id="filter-serves" placeholder="e.g. >=10"></th>
+                    </tr>
+                </thead>
+                <tbody id="recipe-table-body">
+                    <!-- Recipe rows will be added here dynamically -->
+                </tbody>
+            </table>
+            <div id="no-results-message" class="no-results-message" style="display: none;">
+                No recipes match your search criteria. Please try different filters.
+            </div>
+            <div id="no-data-message" class="no-data-message" style="display: none;">
+                No recipe data available. Please check your connection or try again later.
+            </div>
+        </div>
+        
+        <div class="pagination">
+            <div class="pagination-controls">
+                <button id="prev-page" disabled>Previous</button>
+                <span id="page-info">Page 1 of 1</span>
+                <button id="next-page">Next</button>
+            </div>
+            <div class="per-page-control">
+                <label for="per-page-select">Results per page:</label>
+                <select id="per-page-select">
+                    <option value="15">15</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="overlay" id="overlay"></div>
+    
+    <div class="drawer" id="recipe-drawer">
+        <div class="drawer-header">
+            <h2 id="drawer-title">Recipe Details</h2>
+            <button class="drawer-close" id="drawer-close">&times;</button>
+        </div>
+        <div class="drawer-content">
+            <div class="drawer-section">
+                <div class="info-row">
+                    <div class="info-label">Description:</div>
+                    <div class="info-value" id="recipe-description"></div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Total Time:</div>
+                    <div class="info-value expandable" id="time-expandable">
+                        <span id="recipe-total-time"></span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="expanded-content" id="time-details">
+                    <div class="info-row">
+                        <div class="info-label">Prep Time:</div>
+                        <div class="info-value" id="recipe-prep-time"></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Cook Time:</div>
+                        <div class="info-value" id="recipe-cook-time"></div>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Serves:</div>
+                    <div class="info-value" id="recipe-serves"></div>
+                </div>
+            </div>
+            
+            <div class="drawer-section">
+                <h3>Nutrition Information</h3>
+                <table class="nutrition-table">
+                    <thead>
+                        <tr>
+                            <th>Nutrient</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="nutrition-table-body">
+                        <!-- Nutrition info will be added here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="recipescript.js"></script>
+</body>
+</html>

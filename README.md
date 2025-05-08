@@ -23,7 +23,7 @@ This project implements an application that parses recipe data from the JSON fil
 ## Prerequisites
 -Python 3.7, I used VSCODE and installed python through there.		
 -Flask -> Installed in vscode terminal ‘pip install flask’
-- Download SQlite extension in vscode
+-Download SQlite extension in vscode
 -Download liveserver extension in vscode
 ### Installation
 1.	Get clone Repository 
